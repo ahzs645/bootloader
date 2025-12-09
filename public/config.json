@@ -1,0 +1,95 @@
+{
+  "defaultTheme": "classic",
+  "themes": [
+    {
+      "id": "classic",
+      "label": "Classic",
+      "type": "builtin",
+      "background": "assets/bg-tonymac.png",
+      "logo": "assets/logo.png",
+      "entries": [
+        {
+          "id": "macos",
+          "name": "macOS",
+          "icon": "assets/vol_internal_hfs.png",
+          "badge": "assets/os_lion.png",
+          "url": "https://apple.com"
+        },
+        {
+          "id": "windows",
+          "name": "Windows",
+          "icon": "assets/vol_internal_ntfs.png",
+          "badge": "assets/os_winxp.png",
+          "url": "https://microsoft.com"
+        }
+      ],
+      "actions": [
+        { "id": "shell", "name": "UEFI Shell", "icon": "assets/tool_shell.png" },
+        { "id": "clover", "name": "Clover Config", "icon": "assets/func_clover.png" },
+        { "id": "about", "name": "About Clover", "icon": "assets/func_about.png" },
+        { "id": "options", "name": "Options", "icon": "assets/func_options.png" },
+        { "id": "reset", "name": "Reset", "icon": "assets/func_reset.png" },
+        { "id": "shutdown", "name": "Shutdown", "icon": "assets/func_shutdown.png" }
+      ]
+    },
+    {
+      "id": "modern-dark",
+      "label": "Modern Dark",
+      "type": "builtin",
+      "background": "assets/bg-modern-dark.png",
+      "logo": "assets/logo.png",
+      "entries": [
+        {
+          "id": "macos",
+          "name": "macOS",
+          "icon": "assets/modern-dark-os-mac.png",
+          "url": "https://apple.com"
+        },
+        {
+          "id": "windows",
+          "name": "Windows",
+          "icon": "assets/modern-dark-os-win.png",
+          "url": "https://microsoft.com"
+        }
+      ],
+      "actions": [
+        { "id": "shell", "name": "UEFI Shell", "icon": "assets/modern-dark-tool_shell.png" },
+        { "id": "clover", "name": "Clover Config", "icon": "assets/modern-dark-func_clover.png" },
+        { "id": "about", "name": "About Clover", "icon": "assets/modern-dark-func_about.png" },
+        { "id": "options", "name": "Options", "icon": "assets/modern-dark-func_options.png" },
+        { "id": "reset", "name": "Reset", "icon": "assets/modern-dark-func_reset.png" },
+        { "id": "shutdown", "name": "Shutdown", "icon": "assets/modern-dark-func_shutdown.png" }
+      ]
+    },
+    {
+      "id": "modern-light",
+      "label": "Modern Light",
+      "type": "builtin",
+      "background": "assets/bg-modern-light.png",
+      "logo": "assets/logo.png",
+      "entries": [
+        {
+          "id": "macos",
+          "name": "macOS",
+          "icon": "assets/modern-light-os-mac.png",
+          "url": "https://apple.com"
+        },
+        {
+          "id": "windows",
+          "name": "Windows",
+          "icon": "assets/modern-light-os-win.png",
+          "url": "https://microsoft.com"
+        }
+      ],
+      "actions": [
+        { "id": "shell", "name": "UEFI Shell", "icon": "assets/modern-light-tool_shell.png" },
+        { "id": "clover", "name": "Clover Config", "icon": "assets/modern-light-func_clover.png" },
+        { "id": "about", "name": "About Clover", "icon": "assets/modern-light-func_about.png" },
+        { "id": "options", "name": "Options", "icon": "assets/modern-light-func_options.png" },
+        { "id": "reset", "name": "Reset", "icon": "assets/modern-light-func_reset.png" },
+        { "id": "shutdown", "name": "Shutdown", "icon": "assets/modern-light-func_shutdown.png" }
+      ]
+    }
+  ],
+  "cloverThemes": []
+}
