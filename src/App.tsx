@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import XPBootScreen from './XPBootScreen';
 
 // Types matching config.json structure
 type ConfigEntry = {
@@ -89,6 +90,7 @@ export default function App() {
   const [actionIndex, setActionIndex] = useState(0);
   const [showOptions, setShowOptions] = useState(false);
   const [optionIndex, setOptionIndex] = useState(0);
+  const [showXPBoot, setShowXPBoot] = useState(false);
 
   // Load config on mount
   useEffect(() => {
@@ -150,8 +152,17 @@ export default function App() {
     }
   }, [selectedIndex, activeRow, themeId]);
 
-  // Handle booting an entry (navigate to URL)
+  // Handle booting an entry (navigate to URL or show boot screen)
   const bootEntry = (entry: ConfigEntry) => {
+    // Check if this is a Windows XP entry
+    if (entry.id === 'windowsxp' || entry.name.toLowerCase().includes('windows xp')) {
+      setStatus(`Booting ${entry.name} ...`);
+      setTimeout(() => {
+        setShowXPBoot(true);
+      }, 500);
+      return;
+    }
+
     if (entry.url) {
       setStatus(`Booting ${entry.name} ...`);
       setTimeout(() => {
@@ -237,6 +248,16 @@ export default function App() {
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [selectedIndex, activeRow, actionIndex, themeId, showOptions, optionIndex, themes, entries, actions]);
+
+  // Show XP Boot Screen
+  if (showXPBoot) {
+    return (
+      <XPBootScreen
+        onExit={() => setShowXPBoot(false)}
+        onLogin={(user) => console.log('Logged in as:', user.name)}
+      />
+    );
+  }
 
   // Loading state
   if (!theme) {

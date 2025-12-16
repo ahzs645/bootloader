@@ -16,11 +16,10 @@
           "url": "https://apple.com"
         },
         {
-          "id": "windows",
-          "name": "Windows",
+          "id": "windowsxp",
+          "name": "Windows XP",
           "icon": "assets/vol_internal_ntfs.png",
-          "badge": "assets/os_winxp.png",
-          "url": "https://microsoft.com"
+          "badge": "assets/os_winxp.png"
         }
       ],
       "actions": [
@@ -46,10 +45,9 @@
           "url": "https://apple.com"
         },
         {
-          "id": "windows",
-          "name": "Windows",
-          "icon": "assets/modern-dark-os-win.png",
-          "url": "https://microsoft.com"
+          "id": "windowsxp",
+          "name": "Windows XP",
+          "icon": "assets/modern-dark-os-win.png"
         }
       ],
       "actions": [
@@ -75,10 +73,9 @@
           "url": "https://apple.com"
         },
         {
-          "id": "windows",
-          "name": "Windows",
-          "icon": "assets/modern-light-os-win.png",
-          "url": "https://microsoft.com"
+          "id": "windowsxp",
+          "name": "Windows XP",
+          "icon": "assets/modern-light-os-win.png"
         }
       ],
       "actions": [
