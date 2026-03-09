@@ -1,0 +1,74 @@
+@font-face {
+  font-family: 'Perfect DOS VGA';
+  src: url('/boot-device-not-found/fonts/Perfect.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bdnf-screen {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  color: #73ffff;
+  font-family: 'Perfect DOS VGA', monospace;
+  font-size: clamp(18px, 2vw, 26px);
+  line-height: 1.25;
+  cursor: url('/boot-device-not-found/cursor.png'), auto;
+  z-index: 1000;
+}
+
+.bdnf-panel {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.bdnf-dell,
+.bdnf-text-block {
+  min-height: 100%;
+}
+
+.bdnf-top-right {
+  text-align: right;
+}
+
+.bdnf-center {
+  text-align: center;
+}
+
+.bdnf-dell-logo {
+  display: block;
+  width: min(560px, 80vw);
+  margin: 18vh auto 36px;
+}
+
+.bdnf-option {
+  border: none;
+  padding: 0 20px;
+  background: #777;
+  color: #fff;
+  font: inherit;
+  line-height: inherit;
+}
+
+.bdnf-progress {
+  width: min(560px, 85vw);
+  height: 28px;
+  margin: 18px 0 10px;
+  border: 2px solid #73ffff;
+}
+
+.bdnf-progress-bar {
+  height: 100%;
+  background: #73ffff;
+}
+
+@media (max-width: 800px) {
+  .bdnf-panel {
+    padding: 16px;
+  }
+
+  .bdnf-dell-logo {
+    margin-top: 12vh;
+  }
+}

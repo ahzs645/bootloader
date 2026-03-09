@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import BootDeviceNotFound from './BootDeviceNotFound';
 import XPBootScreen from './XPBootScreen';
+
+type EntryExperience = 'xp' | 'boot-device-not-found';
 
 // Types matching config.json structure
 type ConfigEntry = {
@@ -9,6 +12,7 @@ type ConfigEntry = {
   icon: string;
   badge?: string;
   url?: string;
+  experience?: EntryExperience;
 };
 
 type ConfigAction = {
@@ -90,7 +94,7 @@ export default function App() {
   const [actionIndex, setActionIndex] = useState(0);
   const [showOptions, setShowOptions] = useState(false);
   const [optionIndex, setOptionIndex] = useState(0);
-  const [showXPBoot, setShowXPBoot] = useState(false);
+  const [activeExperience, setActiveExperience] = useState<EntryExperience | null>(null);
 
   // Load config on mount
   useEffect(() => {
@@ -130,6 +134,11 @@ export default function App() {
   const theme = themes.find((item) => item.id === themeId) ?? themes[0];
   const entries = theme?.entries ?? [];
   const actions = theme?.actions ?? [];
+  const exitExperience = () => {
+    setActiveExperience(null);
+    const entry = entries[selectedIndex] ?? entries[0];
+    setStatus(entry ? `Boot ${entry.name}` : 'Ready');
+  };
 
   // Reset selection when theme changes
   useEffect(() => {
@@ -154,11 +163,16 @@ export default function App() {
 
   // Handle booting an entry (navigate to URL or show boot screen)
   const bootEntry = (entry: ConfigEntry) => {
-    // Check if this is a Windows XP entry
-    if (entry.id === 'windowsxp' || entry.name.toLowerCase().includes('windows xp')) {
+    const experience =
+      entry.experience ??
+      (entry.id === 'windowsxp' || entry.name.toLowerCase().includes('windows xp')
+        ? 'xp'
+        : null);
+
+    if (experience) {
       setStatus(`Booting ${entry.name} ...`);
       setTimeout(() => {
-        setShowXPBoot(true);
+        setActiveExperience(experience);
       }, 500);
       return;
     }
@@ -249,14 +263,17 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKey);
   }, [selectedIndex, activeRow, actionIndex, themeId, showOptions, optionIndex, themes, entries, actions]);
 
-  // Show XP Boot Screen
-  if (showXPBoot) {
+  if (activeExperience === 'xp') {
     return (
       <XPBootScreen
-        onExit={() => setShowXPBoot(false)}
+        onExit={exitExperience}
         onLogin={(user) => console.log('Logged in as:', user.name)}
       />
     );
+  }
+
+  if (activeExperience === 'boot-device-not-found') {
+    return <BootDeviceNotFound onExit={exitExperience} />;
   }
 
   // Loading state
@@ -303,6 +320,7 @@ export default function App() {
                   </span>
                 ) : null}
               </span>
+              <span className="entry-name">{entry.name}</span>
               <span className="sr-only">{entry.name}</span>
             </button>
           );

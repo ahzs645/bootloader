@@ -19,7 +19,15 @@
           "id": "windowsxp",
           "name": "Windows XP",
           "icon": "assets/vol_internal_ntfs.png",
-          "badge": "assets/os_winxp.png"
+          "badge": "assets/os_winxp.png",
+          "experience": "xp"
+        },
+        {
+          "id": "boot-device-not-found",
+          "name": "Boot Device Not Found",
+          "icon": "assets/vol_recovery.png",
+          "badge": "assets/os-win.png",
+          "experience": "boot-device-not-found"
         }
       ],
       "actions": [
@@ -47,7 +55,14 @@
         {
           "id": "windowsxp",
           "name": "Windows XP",
-          "icon": "assets/modern-dark-os-win.png"
+          "icon": "assets/modern-dark-os-win.png",
+          "experience": "xp"
+        },
+        {
+          "id": "boot-device-not-found",
+          "name": "Boot Device Not Found",
+          "icon": "assets/modern-dark-func_reset.png",
+          "experience": "boot-device-not-found"
         }
       ],
       "actions": [
@@ -75,7 +90,14 @@
         {
           "id": "windowsxp",
           "name": "Windows XP",
-          "icon": "assets/modern-light-os-win.png"
+          "icon": "assets/modern-light-os-win.png",
+          "experience": "xp"
+        },
+        {
+          "id": "boot-device-not-found",
+          "name": "Boot Device Not Found",
+          "icon": "assets/modern-light-func_reset.png",
+          "experience": "boot-device-not-found"
         }
       ],
       "actions": [
